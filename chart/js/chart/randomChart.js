@@ -12,16 +12,7 @@ export class Chart {
     this.width = width;
     this.height = height;
     this.lineWidth = lineWidth;
-
-    this.data = [];
-    this.dataLength = this.data.length;
-
-    setInterval(() => {
-      const newData = Math.floor(Math.random() * 11);
-      if (this.data.length > 9) DATA.splice(0, 1);
-      this.data.push(newData);
-      console.log(this.data);
-    }, 1000);
+    this.dataLength = DATA.length;
   }
 
   draw(ctx) {
@@ -33,7 +24,7 @@ export class Chart {
       const fixedI = 10 - i;
       ctx.lineTo(
         this.width * fixedI * 0.1,
-        this.height * this.data[this.dataLength - i - 1] * 0.1
+        this.height * DATA[this.dataLength - i - 1] * 0.1
       );
     }
     if (this.dataLength < 10) {
